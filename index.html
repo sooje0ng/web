@@ -33,6 +33,22 @@
             type="button"
             value="night"
             onclick="
+            if(this.value === 'night'){
+                document.querySelector('body').style.backgroundColor = 'black';
+                document.querySelector('body').style.color='white';
+                this.value = 'day';
+            }else{
+                document.querySelector('body').style.backgroundColor = 'white';
+                document.querySelector('body').style.color='black';
+            }
+
+            "
+        />
+        <!--
+        <input
+            type="button"
+            value="night"
+            onclick="
         document.querySelector('body').style.backgroundColor = 'black'
         document.querySelector('body').style.color='white'
             "
@@ -45,6 +61,7 @@
         document.querySelector('body').style.color='black'
             "
         />
+        -->
         <a href="index.html"><h1>WEB</h1></a>
 
         <div id="container">
