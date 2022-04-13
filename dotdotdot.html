@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            #header {
+                padding: 0 5px 0px 5px;
+                border: solid 1px darkgray;
+                background-color: darkgray;
+                cursor: pointer;
+            }
+            #content {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        Javascript is
+        <span
+            id="header"
+            onclick="
+            document.getElementById('content').style.display = 'inline';
+            document.getElementById('header').style.display = 'none';
+        "
+            >...</span
+        >
+        <span id="content"
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+            molestiae, distinctio voluptates esse et nulla, magnam quam,
+            doloribus laborum corporis maiores! Perspiciatis reiciendis ea eum
+            animi ipsa quas dignissimos quidem.</span
+        >
+
+        <hr />
+
+        Javascript is
+        <span
+            style="
+                background-color: darkgray;
+                border: solid 1px darkgray;
+                padding: 0 5px;
+                cursor: pointer;
+            "
+            onclick="
+        this.style.display = 'none';
+        document.querySelector('#content1').innerHTML = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae, distinctio voluptates esse et nulla, magnam quam, doloribus laborum corporis maiores! Perspiciatis reiciendis ea eum animi ipsa quas dignissimos quidem.';
+        "
+            >... </span
+        ><span id="content1"></span>
+        <script></script>
+    </body>
+</html>
