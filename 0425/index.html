@@ -7,6 +7,7 @@
                     onclick="
             
                 welcome(event);
+                event.preventDefault();
                 "
                     >WEB</a
                 >
@@ -48,6 +49,7 @@
                 selectedId = Number(e.target.id);
                 read();
             }
+
             function nav() {
                 fetch("http://localhost:3000/topics")
                     .then((res) => res.json())
@@ -64,7 +66,9 @@
                             .join("");
                         document.querySelector("nav>ol").innerHTML = tag;
                     });
+                document.querySelector("nav>ol").innerHTML = "Loading...";
             }
+
             function welcome(e) {
                 document.querySelector(
                     "article"
@@ -72,15 +76,17 @@
                 selectedId = null;
                 control();
             }
+
             function read() {
-                // 3. 아이디와 일치하는 topics의 원소를 찾는다.
-                const topic = topics.filter((e) => e.id === selectedId)[0];
-                // 4. 본문을 만든다.
-                const content = `<h2>${topic.title}</h2>${topic.body}`;
-                // 5. 본문을 출력한다.
-                document.querySelector("article").innerHTML = content;
-                control();
+                fetch("http://localhost:3000/topics/" + selectedId)
+                    .then((res) => res.json())
+                    .then((topic) => {
+                        const content = `<h2>${topic.title}</h2>${topic.body}`;
+                        document.querySelector("article").innerHTML = content;
+                        control();
+                    });
             }
+
             function createHandler(e) {
                 e.preventDefault();
                 const t = e.target.title.value;
